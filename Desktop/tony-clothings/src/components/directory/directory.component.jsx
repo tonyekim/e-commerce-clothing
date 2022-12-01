@@ -2,12 +2,7 @@ import React, {Component} from "react";
 import MenuItem from './../menu-item/menu-item.components';
 import "./directory.styles.scss";
 
-
-class Directory extends Component {
-    constructor() {
-        super();
-        this.state = {
-          sections: [
+export const  sections = [
             {
               title: "hats",
               imageUrl: "https://i.ibb.co/cvpntL1/hats.png",
@@ -40,21 +35,24 @@ class Directory extends Component {
               id: 5,
               linkUrl: "",
             },
-          ],
-        };
-    }
+          ]
 
 
-    render() {
-        return (
-            <div className="directory-menu">
-                {this.state.sections.map(({title, imageUrl, id, size}) => 
-               <MenuItem key={id} title={title} imageUrl={imageUrl} size={size} />
-               )}
+function Directory() {
 
-            </div>
-        )
-    }
+   return (
+     <div className="directory-menu">
+       {sections.map((item) => (
+         <MenuItem key={item.id} item={item} />
+       ))}
+     </div>
+   );
+  
 }
+
+
+  
+       
+
  
 export default Directory; 
